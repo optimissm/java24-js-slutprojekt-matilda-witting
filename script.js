@@ -21,18 +21,8 @@ rateButton.addEventListener("click", () => {
       rateContainer.innerHTML = "";
 
       rateMovies.forEach(movie => {
-        // skapar en div för att fylla med information
-        const movieCard = document.createElement("div");
-        movieCard.classList.add("movieInfo");
 
-        movieCard.innerHTML = `
-            <h3>${movie.title}</h3>
-            <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
-            <p><strong>Release:</strong> ${movie.release_date}</p>
-            <p><strong>Score:</strong> ${movie.vote_average}</p>
-        `;
-
-        rateContainer.appendChild(movieCard);
+        rateContainer.appendChild(createMovieCard(movie));
 
       });
 
@@ -59,18 +49,8 @@ popButton.addEventListener("click", () => {
     popContainer.innerHTML = "";
 
     popMovies.forEach(movie => {
-      const movieCard = document.createElement("div");
-      movieCard.classList.add("popMovieInfo");
 
-      movieCard.innerHTML = `
-        <h3>${movie.title}</h3>
-        <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
-        <p><strong>Release:</strong> ${movie.release_date}</p>
-        <p><strong>Score:</strong> ${movie.vote_average}</p>
-      `;
-
-      popContainer.appendChild(movieCard);
-
+      popContainer.appendChild(createMovieCard(movie));
 
     });
 
