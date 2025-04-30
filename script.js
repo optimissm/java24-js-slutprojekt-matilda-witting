@@ -28,7 +28,7 @@ rateButton.addEventListener("click", () => {
 
     })
     .catch(err => {
-      console.error("Tyvärr kunde jag inte hämta listan med filmer just nu...", err);
+      console.error("I''m sorry, but I couldn't find the list right now...", err);
 
     });
 
@@ -61,7 +61,6 @@ popButton.addEventListener("click", () => {
     console.error("I'm not able to show you the most popular movies right now... Try agian later.")
 
   });
-
 
 });
 

@@ -11,6 +11,6 @@ fetch(url)
     // och skriver ut den i konsol
     .then((json) => console.log(json))
     // är det några fel någonstans, så hamnar vi här
-    .catch((err) => console.error("error: " + err));
+    .catch((err) => console.error("Error: " + err));
 
 
