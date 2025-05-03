@@ -8,6 +8,8 @@ const topRatedUrl = `https://api.themoviedb.org/3/movie/top_rated?language=en-US
 const rateButton = document.getElementById("topButton");
 const rateContainer = document.getElementById("topContainer");
 
+
+
 // vid klick så laddas filmerna från urlen
 rateButton.addEventListener("click", () => {
   // när man klickar händer det som står här i

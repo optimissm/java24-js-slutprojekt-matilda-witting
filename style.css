@@ -1,0 +1,123 @@
+
+:root {
+    --primary-bg:rgb(186, 40, 0); 
+    --second--bg: Teal;
+    --primary-font: Georgia, serif;
+    --font-color: DarkSlateGray; 
+}
+
+body {
+    font-family: var(--primary-font);
+    color: var(--font-color);
+    background-color: var(--second--bg);
+}
+
+header{
+    background-color: var(--primary-bg);
+    padding-top: 50px;
+    margin: 30px;
+
+}
+
+h1 {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--font-color);
+    font-size: 80px;
+
+}
+
+h2 {
+    font-size: 40px;
+
+}
+
+p {
+    font-size: 20px;
+}
+
+.movieContainer {
+    margin: 30px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.topMovies {
+    flex: 1;
+    padding: 50px;
+    padding-top: 2px;
+    background-color: lightgray;
+    border: 5px solid black;
+}
+
+.popMovies {
+    flex: 1;
+    padding: 50px;
+    padding-top: 2px;
+    background-color: lightgray;
+    border: 5px solid black;
+}
+
+.searchMovies {
+    flex: 1;
+    margin: 30px;
+    text-align: center;
+    padding: 50px;
+    padding-top: 2px;
+    background-color: lightgray;
+    border: 5px solid black;
+}
+
+.logo {
+    width: 100%;
+    height: 300px;
+    display: block;
+    object-fit: cover;
+}
+
+
+
+
+/*
+
+h1 {
+    color: var(--primary-bg);
+    font-size: 200%;
+    text-align: center;
+    margin: auto;
+}
+
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--font-color);
+    font-family: var(--primary-font);
+
+}
+*/
+
+button {
+    background-color: teal;
+    color: white;
+    padding: 10px 20px;
+    border: none;              /* Ingen standardram */
+    border-radius: 8px;        /* Rundade hörn */
+    font-size: 16px;
+    cursor: pointer;           /* Ändrar muspekaren till en hand */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+    /*
+        font-family: Trebuchet MS, sans-serif;
+
+        font-family: Helvetica, sans-serif;
+
+        font-family: 'Times New Roman', Times, serif;
+
+    */
+
+
+
