@@ -108,21 +108,13 @@ button {
     color: white;
     padding: 10px 20px;
     border: none;
+    margin: 10px;
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-
-    /*
-        font-family: Trebuchet MS, sans-serif;
-
-        font-family: Helvetica, sans-serif;
-
-        font-family: 'Times New Roman', Times, serif;
-
-    */
 
 
 

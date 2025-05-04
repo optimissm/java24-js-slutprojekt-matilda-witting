@@ -1,73 +1,98 @@
 
 // då gör vi en search  funktion
 
+// importerar html element
 const searchInput = document.getElementById("findMovie");
-const searchResult = document.getElementById("result");
+const searchButton = document.getElementById("searchButton");
+const resultContainer = document.getElementById("resultContainer");
+
+// så att man kan söka med att bara trycka enter:
 
 // och här handlar det om att trycka på knappar
 searchInput.addEventListener("keypress", (event) => {
     // så när "Enter" trycks så händer det grejer
     if (event.key === "Enter") {
         // trim() tar bort "onödiga mellanslag"
-        // const query = searchInput.value.trim();
-        const query = searchInput.value;
-        // om du inte skrev något så händer inget
+        const query = searchInput.value.trim();
+
+        // här söker vi på texten för att se om vi hittar en film
         if (query) {
             searchMovie(query);
+        } else {
+            // om vi inte söker på något ser vi denna text
+            resultContainer.innerHTML = "<p>Enter the title of the movie you want to know more about </p>"
         }
+
     }
 });
 
-// funktion för att söka på en film
+// och genom att trycka på knappen:
+searchButton.addEventListener("click", () => {
+
+    // typ samma sak som uppe, fast med knapp ist för enter
+    const query = searchInput.value.trim();
+
+    if (query) {
+        searchMovie(query);
+    } else {
+
+        resultContainer.innerHTML = "<p>Please write the title of the movie you're looking for in the field above";
+    }
+    // tyvärr finns just nu inte stänga funktion på knappen
+    // men lägger ev till den sen
+
+});
+
+// denna gör det möjligt att söka på filmer öht
 function searchMovie(query) {
     const url = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query)}&include_adult=false&language=en-US&page=1&api_key=${API_KEY}`;
 
+    // anropar min URL och översätter den till json
+    // så att den går att jobba med
+    // och så att den kan visa lista i data.result/displayMovieResult
     fetch(url)
-    .then(res => res.json())
-    .then(data => {
-        displayMovieResult(data.results);
-    })
-    .catch(err => {
-        console.error("Something went wrong with your search. Try again later... ", err);
-        searchResult.innerHTML = `<p>Something wrong, come back later </p>`;
-    });
+        .then(res => res.json())
+        .then(data => {
+            displayMovieResult(data.results);
+        })
+        // felmeddelande
+        .catch(err => {
+            console.error("Something went wrong with the search. Check your network connection ", err);
+            resultContainer.innerHTML = `<p>There is an unforseen issue, please come back later. </p>`;
+        });
 
 }
-
 
 // funktion för att visa sökresultaten
 function displayMovieResult(movies) {
     // om det inte finns något som matchar sökningen
     if (movies.length === 0) {
-        searchResult.innerHTML = `<p>I couldn't find any movies matching that title, try another one!</p>`;
+        resultContainer.innerHTML = `<p>I couldn't find any movies matching that title, try another one!</p>`;
 
         return;
-
     }
 
-    searchResult.innerHTML = "";
+    // rensar fältet
+    resultContainer.innerHTML = "";
 
     movies.forEach(movie => {
+        // för varje film,
+        // så skapas ett "kort"
         const movieCard = document.createElement("div");
         movieCard.classList.add("searchMovieCard");
 
+        // där vi ser infon nedan som vi hämtar från tmdb
         movieCard.innerHTML = `
             <h3>${movie.title}</h3>
             <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
             <p><strong>Release Date:</strong> ${movie.release_date || "Unknown"}</p>
-            <p><strong>Description:</strong> ${movie.overview || "Ingen beskrivning tillgänglig."}</p>
+            <p><strong>Description:</strong> ${movie.overview || "No description available."}</p>
             <p><strong>Score:</strong> ${movie.vote_average}</p>
         `;
 
-        searchResult.appendChild(movieCard);
+        resultContainer.appendChild(movieCard);
 
     });
 
-
 }
-
-
-
-
-
 

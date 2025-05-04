@@ -8,6 +8,8 @@ const topRatedUrl = `https://api.themoviedb.org/3/movie/top_rated?language=en-US
 const rateButton = document.getElementById("topButton");
 const rateContainer = document.getElementById("topContainer");
 
+// visas toppfilmerna eller inte? 
+// det måste vi veta för att öppna/stänga diven
 let showTop = false;
 
 // vid klick så laddas filmerna från urlen
@@ -26,6 +28,7 @@ rateButton.addEventListener("click", () => {
       .then(res => res.json())
       .then(data => {
         // skapar en lista med de 0-10 högst rankade filmerna
+        // genom att "slicea" listan när vi nått 10
         const rateMovies = data.results.slice(0, 10);
         // rensar diven, så vi inte får filmer på varandra om igen
         rateContainer.innerHTML = "";
@@ -46,6 +49,9 @@ rateButton.addEventListener("click", () => {
   }
 
 });
+
+
+
 
 // Så vill jag basically göra samma sak för populära filmer då också
 // så vi behöver byta URL 
