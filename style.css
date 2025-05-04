@@ -1,9 +1,11 @@
-
+/* De förvalda gemensamma nämnarna */
 :root {
     --primary-bg:rgb(186, 40, 0); 
     --second--bg: Teal;
+    --third-bg: rgba(255, 132, 98, 0.901);
+    --font-color: DarkSlateGray;
+
     --primary-font: Georgia, serif;
-    --font-color: DarkSlateGray; 
 }
 
 body {
@@ -12,13 +14,13 @@ body {
     background-color: var(--second--bg);
 }
 
+/* Intro/översta med bild osv */
 header{
     background-color: var(--primary-bg);
     padding-top: 50px;
     margin: 30px;
 
 }
-
 h1 {
     margin-top: 5px;
     margin-bottom: 20px;
@@ -28,9 +30,9 @@ h1 {
 
 }
 
+/* Rutorna */
 h2 {
     font-size: 40px;
-
 }
 
 p {
@@ -48,16 +50,18 @@ p {
     flex: 1;
     padding: 50px;
     padding-top: 2px;
-    background-color: lightgray;
-    border: 5px solid black;
+    background-color: var(--third-bg);
+    border: 2px solid rgb(186, 40, 0);
+    border-radius: 5px;
 }
 
 .popMovies {
     flex: 1;
     padding: 50px;
     padding-top: 2px;
-    background-color: lightgray;
-    border: 5px solid black;
+    background-color: var(--third-bg);
+    border: 2px solid rgb(186, 40, 0);
+    border-radius: 5px;
 }
 
 .searchMovies {
@@ -66,8 +70,9 @@ p {
     text-align: center;
     padding: 50px;
     padding-top: 2px;
-    background-color: lightgray;
-    border: 5px solid black;
+    background-color: var(--third-bg);
+    border: 2px solid rgb(186, 40, 0);
+    border-radius: 5px;
 }
 
 .logo {
@@ -77,35 +82,35 @@ p {
     object-fit: cover;
 }
 
-
-
-
-/*
-
-h1 {
-    color: var(--primary-bg);
-    font-size: 200%;
-    text-align: center;
-    margin: auto;
-}
-
-
-body {
-    background-color: var(--primary-bg);
-    color: var(--font-color);
+#findMovie {
+    width: 250px;
+    height: 35px;
+    border: 2px solid teal;
+    border-radius: 5px;
+    outline: none;
     font-family: var(--primary-font);
+    font-size: 15px;
+    color: var(--font-color);
 
 }
-*/
+
+#findMovie:focus {
+    border-color: var(--primary-bg);
+}
+
+#result {
+    margin: 10px;
+}
+
 
 button {
     background-color: teal;
     color: white;
     padding: 10px 20px;
-    border: none;              /* Ingen standardram */
-    border-radius: 8px;        /* Rundade hörn */
+    border: none;
+    border-radius: 8px;
     font-size: 16px;
-    cursor: pointer;           /* Ändrar muspekaren till en hand */
+    cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
