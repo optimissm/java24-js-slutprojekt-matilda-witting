@@ -1,8 +1,9 @@
 /* De förvalda gemensamma nämnarna */
 :root {
-    --primary-bg:rgb(186, 40, 0); 
-    --second--bg: Teal;
-    --third-bg: rgba(255, 132, 98, 0.901);
+    --primary-bg:teal; 
+    --second--bg: rgb(10, 52, 74); 
+    --third-bg: rgba(255, 249, 249, 0.852);
+    --border-color: rgb(160, 35, 0);
     --font-color: DarkSlateGray;
 
     --primary-font: Georgia, serif;
@@ -19,14 +20,21 @@ header{
     background-color: var(--primary-bg);
     padding-top: 50px;
     margin: 30px;
+    border-radius: 10px;
 
 }
 h1 {
     margin-top: 5px;
     margin-bottom: 20px;
     text-align: center;
-    color: var(--font-color);
-    font-size: 80px;
+    color: var(--border-color);
+    font-size: 400%;
+    text-shadow:
+    -2px -2px 0 var(--second--bg),
+     2px -2px 0 var(--second--bg),
+    -2px  2px 0 var(--second--bg),
+     2px  2px 0 var(--second--bg),
+     0px  0px 3px var(--second--bg);
 
 }
 
@@ -51,7 +59,7 @@ p {
     padding: 50px;
     padding-top: 2px;
     background-color: var(--third-bg);
-    border: 2px solid rgb(186, 40, 0);
+    border: 2px solid var(--border-color);
     border-radius: 5px;
 }
 
@@ -60,7 +68,7 @@ p {
     padding: 50px;
     padding-top: 2px;
     background-color: var(--third-bg);
-    border: 2px solid rgb(186, 40, 0);
+    border: 2px solid var(--border-color);
     border-radius: 5px;
 }
 
@@ -71,7 +79,7 @@ p {
     padding: 50px;
     padding-top: 2px;
     background-color: var(--third-bg);
-    border: 2px solid rgb(186, 40, 0);
+    border: 2px solid var(--border-color);
     border-radius: 5px;
 }
 
@@ -80,6 +88,8 @@ p {
     height: 300px;
     display: block;
     object-fit: cover;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .poster {
