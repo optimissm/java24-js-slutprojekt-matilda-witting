@@ -32,18 +32,15 @@ rateButton.addEventListener("click", () => {
         const rateMovies = data.results.slice(0, 10);
         // rensar diven, så vi inte får filmer på varandra om igen
         rateContainer.innerHTML = "";
-
         rateMovies.forEach(movie => {
 
           rateContainer.appendChild(createMovieCard(movie));
-
         });
 
         showTop = true;  
-
       })
       .catch(err => {
-        console.error("I''m sorry, but I couldn't find the list right now...", err);
+        console.error("I'm sorry, but I can't find the list of top 10 highest rated movies right now... Please try again later.", err);
 
       });
   }
@@ -84,16 +81,13 @@ popButton.addEventListener("click", () => {
         });
 
         showPop = true;
-
       }) 
 
     .catch(err => {
-    console.error("I'm not able to show you the most popular movies right now... Try agian later.")
+    console.error("I'm not able to show you the list of the 10 most popular movies right now... Please try agian later.")
 
     });
-
   }
-
 });
 
 

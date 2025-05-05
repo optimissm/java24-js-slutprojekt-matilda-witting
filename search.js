@@ -19,31 +19,31 @@ searchInput.addEventListener("keypress", (event) => {
         if (query) {
             searchMovie(query);
         } else {
-            // om vi inte söker på något ser vi denna text
-            resultContainer.innerHTML = "<p>Enter the title of the movie you want to know more about </p>"
+            // lämnas sökfältet tomt, får vi detta svar:
+            resultContainer.innerHTML = "<p>Please enter the title of the movie you're looking for in the field above </p>";
         }
 
     }
 });
 
+
 // och genom att trycka på knappen:
 searchButton.addEventListener("click", () => {
 
-    // typ samma sak som uppe, fast med knapp ist för enter
+    // typ samma sak som uppe, fast med knappen ist för enter
     const query = searchInput.value.trim();
 
     if (query) {
         searchMovie(query);
     } else {
 
-        resultContainer.innerHTML = "<p>Please write the title of the movie you're looking for in the field above";
+        resultContainer.innerHTML = "<p>Please enter the title of the movie you're looking for in the field above </p>";
     }
     // tyvärr finns just nu inte stänga funktion på knappen
     // men lägger ev till den sen
-
 });
 
-// denna gör det möjligt att söka på filmer öht
+// denna gör det möjligt att söka på filmerna öht
 function searchMovie(query) {
     const url = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query)}&include_adult=false&language=en-US&page=1&api_key=${API_KEY}`;
 
@@ -67,12 +67,11 @@ function searchMovie(query) {
 function displayMovieResult(movies) {
     // om det inte finns något som matchar sökningen
     if (movies.length === 0) {
-        resultContainer.innerHTML = `<p>I couldn't find any movies matching that title, try another one!</p>`;
+        resultContainer.innerHTML = `<p>I couldn't find any movies matching that title. Please check your spelling or try another title!</p>`;
 
         return;
     }
 
-    // rensar fältet
     resultContainer.innerHTML = "";
 
     movies.forEach(movie => {
@@ -84,7 +83,7 @@ function displayMovieResult(movies) {
         // där vi ser infon nedan som vi hämtar från tmdb
         movieCard.innerHTML = `
             <h3>${movie.title}</h3>
-            <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
+            <img class="posterSearch" src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
             <p><strong>Release Date:</strong> ${movie.release_date || "Unknown"}</p>
             <p><strong>Description:</strong> ${movie.overview || "No description available."}</p>
             <p><strong>Score:</strong> ${movie.vote_average}</p>

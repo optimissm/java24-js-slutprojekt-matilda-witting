@@ -82,6 +82,16 @@ p {
     object-fit: cover;
 }
 
+.poster {
+    width: 100%;
+    border: 2px solid;
+}
+
+.posterSearch {
+    width: 250px;
+    border: 2px solid;
+}
+
 #findMovie {
     width: 250px;
     height: 35px;
