@@ -3,6 +3,7 @@
 
 // importerar html element
 const searchInput = document.getElementById("findMovie");
+const movieSort = document.getElementById("movieSort")
 const searchButton = document.getElementById("searchButton");
 const resultContainer = document.getElementById("resultContainer");
 
@@ -26,7 +27,6 @@ searchInput.addEventListener("keypress", (event) => {
     }
 });
 
-
 // och genom att trycka på knappen:
 searchButton.addEventListener("click", () => {
 
@@ -43,6 +43,22 @@ searchButton.addEventListener("click", () => {
     // men lägger ev till den sen
 });
 
+
+// funktionen för att sortera de filmer vi söker på 
+
+// börjar med att göra resultaten 
+// till en Array så att de är lättare att sortera
+let currentMovies = [];
+
+// gartdinmenyn ska få en eventlistener
+const sortSelect = document.getElementById("movieSort");
+
+sortSelect.addEventListener("change", () => {
+    const selectedSort = sortSelect.value;
+    sortMovies(selectedSort);
+});
+
+
 // denna gör det möjligt att söka på filmerna öht
 function searchMovie(query) {
     const url = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query)}&include_adult=false&language=en-US&page=1&api_key=${API_KEY}`;
@@ -53,6 +69,7 @@ function searchMovie(query) {
     fetch(url)
         .then(res => res.json())
         .then(data => {
+            currentMovies = data.results;       // för att sortera
             displayMovieResult(data.results);
         })
         // felmeddelande
@@ -94,4 +111,23 @@ function displayMovieResult(movies) {
     });
 
 }
+
+// och beroende på vilket val du gör, 
+// så ska olika saker hända
+function sortMovies(criteria) {
+    let sorted = [...currentMovies];
+
+    if (criteria === "A-Z") {
+        sorted.sort((a, b) => a.title.localeCompare(b.title));
+    } else if (criteria === "Z-A") {
+        sorted.sort((a, b) => b.title.localeCompare(a.title));
+    } else if (criteria === "risingRate") {
+        sorted.sort((a, b) => b.vote_average - a.vote_average);
+    } else if (criteria === "fallingRate") {
+        sorted.sort((a, b) => a.vote_average - b.vote_average);
+    }
+
+    displayMovieResult(sorted);
+}
+
 

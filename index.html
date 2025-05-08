@@ -10,45 +10,44 @@
     <title>Movie Night</title>
 </head>
 <body>
-
+        <div class="intro">
     <header>
-        <h1 class="welcome">WELCOME TO</h1>
-        <img src="./images/movienight.jpg" id="logo" class="logo" alt="Movie Night Logo">
-    </header>
 
-    <div class="movieContainer">
-
-
-        <div class="topMovies">
-            <h2>Do you know wich movies are the highest 
-                ranked movies of all time?</h2>
-            <p>With the push of a button you can find the ten most loved movies of all time </p>
-            <h3>Top 10 Rated Movies</h3>
-            <div id="topContainer"></div>
-            <button id="topButton">Show/Hide <br> Top 10 Movies</button>
+            <h1 class="welcome">WELCOME TO</h1>
+            <h2 class="introText">Movie Night</h2>
             
-        </div>
-        
-        <br>
+            <nav class="movieLists">
+                <a class="navBtn" href="./TopRated/toprated.html">Top 10 rated movies</a>
+                <a class="navBtn" href="./Popular/popular.html">10 Most Popular Movies</a>
+            </nav>
+       
+    </header>
+    </div> 
 
-        <div class="popMovies">
-            <h2> And if you want to know wich ten movies are most popular 
-                at the time? </h2>
-                <p> Just press this button, and I'll show you! </p>
-            <h3>Our Most Popular Movies</h3>
-            <div id="popContainer"></div>
-            <button id="popButton">Show/Hide <br> Popular Movies</button>
-        </div>
+    <div>
 
     </div>
-    
-        <div class="searchMovies">
-            <h2>If you know what you are looking for, I can help you find it.</h2>
-            <!-- insert searchbar here -->
-            <input id="findMovie" type="text" placeholder="I'm looking for...">
-            <div id="resultContainer"></div>
-            <button id="searchButton">Show/Hide <br> Results</button>
-        </div>
+
+    <div class="searchMovies">
+        <p class="searchText">If you know what movie you are looking for, I can help you find it!</p>
+        <!-- insert searchbar here -->
+        <input id="findMovie" type="text" placeholder="I'm looking for...">
+        <button id="searchButton">Show Results</button>
+
+        <form>
+            <br>
+            <label for="movieSort" class="labelSort">Sort Movies By: </label>
+            <select name="movieSort" id="movieSort" placeholder="Hjehejhej">
+                <option value="A-Z">Title (A-Z)</option>
+                <option value="Z-A">Title (Z-A)</option>
+                <option value="risingRate">Rating: High to Low</option>
+                <option value="fallingRate">Rating: Low to High</option>
+            </select>
+        </form>
+
+        <div id="resultContainer"></div>
+
+    </div>
 
     <script src="utils.js" defer></script>
     <script src="config.js" defer></script>

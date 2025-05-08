@@ -1,3 +1,4 @@
+
 /* De förvalda gemensamma nämnarna */
 :root {
     --primary-bg:teal; 
@@ -9,69 +10,77 @@
     --primary-font: Georgia, serif;
 }
 
+
+/* Gemensamma */
 body {
     font-family: var(--primary-font);
     color: var(--font-color);
+
     background-color: var(--second--bg);
 }
-
-/* Intro/översta med bild osv */
-header{
+a{
+    font-family: var(--primary-font);
+    color: var(--font-color);
+    text-decoration: none;
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 900px;
+    
+}
+button {
     background-color: var(--primary-bg);
-    padding-top: 50px;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    margin: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+h3{
+    font-size: 30px;
+}
+
+
+
+
+/* Movie Night */
+.intro {
+    background-color: var(--primary-bg);
+    padding-top: 60px;
     margin: 30px;
     border-radius: 10px;
-
 }
 h1 {
-    margin-top: 5px;
-    margin-bottom: 20px;
+    margin-top: -45px;
     text-align: center;
     color: var(--border-color);
-    font-size: 400%;
+    font-size: 200%;
     text-shadow:
-    -2px -2px 0 var(--second--bg),
-     2px -2px 0 var(--second--bg),
-    -2px  2px 0 var(--second--bg),
-     2px  2px 0 var(--second--bg),
-     0px  0px 3px var(--second--bg);
+    -1px -1px 0 var(--second--bg),
+    1px -1px 0 var(--second--bg),
+    -1px  1px 0 var(--second--bg),
+    1px  1px 0 var(--second--bg),
+    0px  0px 3px var(--second--bg);
 
 }
-
-/* Rutorna */
-h2 {
-    font-size: 40px;
+.introText{
+    color: rgb(209, 108, 0);
+    font-size: 500%;
+    margin-top: -20px;
+    text-align: center;
+    text-shadow:
+        -2px -2px 0 var(--second--bg),
+        2px -2px 0 var(--second--bg),
+        -2px  2px 0 var(--second--bg),
+        2px  2px 0 var(--second--bg),
+        0px  0px 3px var(--second--bg);
 }
-
-p {
-    font-size: 20px;
+.searchText {
+    font-size: 150%;
 }
-
-.movieContainer {
-    margin: 30px;
-    display: flex;
-    justify-content: space-between;
-
-}
-
-.topMovies {
-    flex: 1;
-    padding: 50px;
-    padding-top: 2px;
-    background-color: var(--third-bg);
-    border: 2px solid var(--border-color);
-    border-radius: 5px;
-}
-
-.popMovies {
-    flex: 1;
-    padding: 50px;
-    padding-top: 2px;
-    background-color: var(--third-bg);
-    border: 2px solid var(--border-color);
-    border-radius: 5px;
-}
-
 .searchMovies {
     flex: 1;
     margin: 30px;
@@ -82,30 +91,10 @@ p {
     border: 2px solid var(--border-color);
     border-radius: 5px;
 }
-
-.logo {
-    width: 100%;
-    height: 300px;
-    display: block;
-    object-fit: cover;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-.poster {
-    width: 100%;
-    border: 2px solid;
-}
-
-.posterSearch {
-    width: 250px;
-    border: 2px solid;
-}
-
 #findMovie {
     width: 250px;
     height: 35px;
-    border: 2px solid teal;
+    border: 2px solid var(--primary-bg);
     border-radius: 5px;
     outline: none;
     font-family: var(--primary-font);
@@ -113,28 +102,86 @@ p {
     color: var(--font-color);
 
 }
-
 #findMovie:focus {
-    border-color: var(--primary-bg);
+    border-color: var(--second--bg);
 }
-
-#result {
-    margin: 10px;
-}
-
-
-button {
-    background-color: teal;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    margin: 10px;
+#movieSort{
+    background-color: var(--third-bg);
+    color: var(--font-color);
+    font-family: var(--primary-font);
+    height: 40px;
+    width: 150px;
+    border: solid 2px var(--primary-bg);    
     border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+
+
+
+
+/* Top 10 */
+.topMovies {
+    flex: 1;
+    padding: 50px;
+    padding-top: 2px;
+    background-color: var(--third-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+}
+.topHead {
+    height: 80px;
+    background-color: var(--primary-bg);
+    padding-top: 60px;
+    margin: 30px;
+    border-radius: 10px;
+}
+.topBack {
+    margin-top: 1000000px;
+
+}
+
+
+/* Populära */
+.popMovies {
+    flex: 1;
+    padding: 50px;
+    padding-top: 2px;
+    background-color: var(--third-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+}
+.popHead {
+    height: 80px;
+    background-color: var(--primary-bg);
+    padding-top: 60px;
+    margin: 30px;
+    border-radius: 10px;
+}
+
+
+
+
+/* Hittar plats sen */
+
+p {
+    font-size: 20px;
+}
+.poster {
+    width: 300px;
+    border: 2px solid;
+}
+.navBtn {
+    border: 2px solid var(--border-color);
+}
+.navHome{
+    border: 2px solid var(--border-color);
+    margin-bottom: 50px;
+
+}
+.posterSearch {
+    width: 250px;
+    border: 2px solid;
+}
 
 
 
