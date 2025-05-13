@@ -29,7 +29,6 @@ searchInput.addEventListener("keypress", (event) => {
 
 // och genom att trycka på knappen:
 searchButton.addEventListener("click", () => {
-
     // typ samma sak som uppe, fast med knappen ist för enter
     const query = searchInput.value.trim();
 
@@ -39,10 +38,7 @@ searchButton.addEventListener("click", () => {
 
         resultContainer.innerHTML = "<p>Please enter the title of the movie you're looking for in the field above </p>";
     }
-    // tyvärr finns just nu inte stänga funktion på knappen
-    // men lägger ev till den sen
 });
-
 
 // funktionen för att sortera de filmer vi söker på 
 
@@ -53,6 +49,7 @@ let currentMovies = [];
 // gartdinmenyn ska få en eventlistener
 const sortSelect = document.getElementById("movieSort");
 
+// ändrar ordning beroende på vad jag har i min gardin
 sortSelect.addEventListener("change", () => {
     const selectedSort = sortSelect.value;
     sortMovies(selectedSort);
@@ -114,16 +111,16 @@ function displayMovieResult(movies) {
 
 // och beroende på vilket val du gör, 
 // så ska olika saker hända
-function sortMovies(criteria) {
+function sortMovies(selection) {
     let sorted = [...currentMovies];
 
-    if (criteria === "A-Z") {
+    if (selection === "A-Z") {
         sorted.sort((a, b) => a.title.localeCompare(b.title));
-    } else if (criteria === "Z-A") {
+    } else if (selection === "Z-A") {
         sorted.sort((a, b) => b.title.localeCompare(a.title));
-    } else if (criteria === "risingRate") {
+    } else if (selection === "risingRate") {
         sorted.sort((a, b) => b.vote_average - a.vote_average);
-    } else if (criteria === "fallingRate") {
+    } else if (selection === "fallingRate") {
         sorted.sort((a, b) => a.vote_average - b.vote_average);
     }
 

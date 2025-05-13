@@ -37,7 +37,6 @@ button {
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 h3{
     font-size: 30px;
@@ -103,7 +102,7 @@ h1 {
 
 }
 #findMovie:focus {
-    border-color: var(--second--bg);
+    border-color: var(--border-color);
 }
 #movieSort{
     background-color: var(--third-bg);
