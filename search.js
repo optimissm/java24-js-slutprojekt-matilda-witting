@@ -134,6 +134,7 @@ const sorting = document.getElementById("sorting")
 const searchBtn = document.getElementById("searchBtn");
 const resultContainer = document.getElementById("resultContainer");
 
+
 searchInput.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
         const query = searchInput.value.trim();
@@ -147,17 +148,62 @@ searchInput.addEventListener("keypress", (event) => {
     }
 });
 
-searchBtn.addEventListener("click", () => {
+personBtn.addEventListener("click", () => {
     const query = searchInput.value.trim();
 
     if (query) {
-        searchAll(query);
+        searchPerson(query);
     } else {
         resultContainer.innerHTML = "<p>Please enter the title of the movie, or the name of the person you're looking for</p>";
     }
 });
 
-// för att söka på film/person öht
+movieBtn.addEventListener("click", () => {
+    const query = searchInput.value.trim();
+
+    if (query) {
+        searchMovie(query);
+    } else {
+        resultContainer.innerHTML = "<p>Please enter the title of the movie, or the name of the person you're looking for</p>";
+    }
+});
+
+
+
+function searchPerson(query) {
+    const personUrl = `https://api.themoviedb.org/3/search/person?query=${encodeURIComponent(query)}&include_adult=false&language=en-US&page=1&api_key=${API_KEY}`;
+
+    fetch(personUrl)
+        .then(res => res.json())
+        .then(data => {
+            currentPerson = data.results;
+            displayPersonResult(data.results);
+        })
+    .catch(err => {
+        console.error("There is an issue with the person URL, or a problem with your network connection", err);
+        resultContainer.innerHTML = `<p>An error has occurred when tying to find this person. Our best minds are working to resolve the issue as soon as possible. Thank you for your patience, please try again later.</p>`;
+    });
+}
+
+function searchMovie(query) {
+    const movieUrl = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query)}&include_adult=false&language=en-US&page=1&api_key=${API_KEY}`;
+
+    fetch(movieUrl)
+        .then(res => res.json())
+        .then(data => {
+            currentMovie = data.results;
+            displayMovieResult(data.results);
+        })
+    .catch(err => {
+        // felmeddelande som visas i konsol
+        console.error("There is an issue with the movie URL, or a problem with your network connection", err);
+        resultContainer.innerHTML = `<p>An error has occurred. Our best minds are working to resolve the issue as soon as possible. Thank you for your patience, please try again later.</p>`;
+    });
+
+}
+
+// för att söka på film/person öht via entertryck
+// så får du ev ut både och... 
 function searchAll(query) {
     const movieUrl = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query)}&include_adult=false&language=en-US&page=1&api_key=${API_KEY}`;
     const personUrl = `https://api.themoviedb.org/3/search/person?query=${encodeURIComponent(query)}&include_adult=false&language=en-US&page=1&api_key=${API_KEY}`;
@@ -173,6 +219,8 @@ function searchAll(query) {
         console.error("There is an issue with the movie URL, or a problem with your network connection", err);
         resultContainer.innerHTML = `<p>An error has occurred. Our best minds are working to resolve the issue as soon as possible. Thank you for your patience, please try again later.</p>`;
     });
+
+    // resultContainer.innerHTML = "";
 
     fetch(personUrl)
         .then(res => res.json())
