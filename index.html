@@ -28,11 +28,34 @@
 
     </div>
 
+    <div class="searchingFor">
+        <p>What are you looking for?</p>
+        <input id="findAnswer" type="text" placeholder="I'm looking for...">
+        <button id="searchBtn">Show Results</button>
+
+        <form>
+            <br>
+            <!-- Behöver jag först ha en divider mellan movie/person? -->
+            <label for="sorting" class="labelSort">Sort Answer by:</label>
+            <select name="sorting" id="sorting">
+                <option value="A-Z">Title (A-Z)</option>
+                <option value="Z-A">Title (Z-A)</option>
+                <option value="risingRate">Rating: High to Low</option>
+                <option value="fallingRate">Rating: Low to High</option>
+            </select>
+        </form>
+
+        <div id="resultContainer"></div>
+
+    </div>
+
+    <!--
     <div class="searchMovies">
         <p class="searchText">If you know what movie you are looking for, I can help you find it!</p>
-        <!-- insert searchbar here -->
+    -->     <!-- insert searchbar here -->
+    <!--
         <input id="findMovie" type="text" placeholder="I'm looking for...">
-        <button id="searchButton">Show Results</button>
+        <button id="searchMovieButton">Show Results</button>
 
         <form>
             <br>
@@ -48,6 +71,17 @@
         <div id="resultContainer"></div>
 
     </div>
+
+    <div class="searchPerson">
+        <input id="findPerson" type="text" placeholder="I'm looking for this person">
+        <button id="personButton">Show Results</button>
+
+
+        <div id="personContainer"></div>
+
+    </div>
+    
+    -->
 
     <script src="./utils.js" defer></script>
     <script src="./config.js" defer></script>

@@ -80,7 +80,7 @@ h1 {
 .searchText {
     font-size: 150%;
 }
-.searchMovies {
+.searchingFor {
     flex: 1;
     margin: 30px;
     text-align: center;
@@ -90,7 +90,7 @@ h1 {
     border: 2px solid var(--border-color);
     border-radius: 5px;
 }
-#findMovie {
+#findAnswer {
     width: 250px;
     height: 35px;
     border: 2px solid var(--primary-bg);
@@ -101,10 +101,10 @@ h1 {
     color: var(--font-color);
 
 }
-#findMovie:focus {
+#findAnswer:focus {
     border-color: var(--border-color);
 }
-#movieSort{
+#sorting{
     background-color: var(--third-bg);
     color: var(--font-color);
     font-family: var(--primary-font);
