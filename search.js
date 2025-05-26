@@ -34,27 +34,42 @@ personBtn.addEventListener("click", () => {
 });
 
 let currentMovies = [];
+let currentPersons = [];
 
-const sortMovie = document.getElementById("sorting");
+const sortingSelect = document.getElementById("sorting");
 
-sortMovie.addEventListener("change", () => {
-    const selectedSort = sortMovie.value;
+sortingSelect.addEventListener("change", () => {
+    const selectedSort = sortSelect.value;
 
-    if(currentAnswer === "movie") {
+    if (currentAnswer === "movie") {
         sortedMovies(selectedSort);
-    } else {
+    } else if (currentAnswer === "person") {
         sortPersons(selectedSort);
     }
 });
 
 
-let currentPersons = [];
-const sortPerson = document.getElementById("sorting");
+// let currentMovies = [];
+// let currentPersons = [];
 
-sortPerson.addEventListener("change", () => {
-    const selectedSortP = sortPerson.value;
-    sortPersons(selectedSortP);
-});
+// const sortMovie = document.getElementById("sorting");
+
+// sortMovie.addEventListener("change", () => {
+//     const selectedSort = sortMovie.value;
+
+//     if(currentAnswer === "movie") {
+//         sortedMovies(selectedSort);
+//     } else if (currentAnswer === "person") {
+//         sortPersons(selectedSort);
+//     }
+// });
+
+// const sortPerson = document.getElementById("sorting");
+
+// sortPerson.addEventListener("change", () => {
+//     const selectedSortP = sortPerson.value;
+//     sortPersons(selectedSortP);
+// });
 
 
 function searchMovie(query){
@@ -192,6 +207,6 @@ function sortPersons(selection) {
 // var för sig funkar dom iallafall... 
 
 // samt lägga till modulerna... 
-
+// fucking sheit man
 
 
