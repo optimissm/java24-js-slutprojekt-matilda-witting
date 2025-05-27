@@ -18,3 +18,5 @@ fetch(url)
     // är det några fel någonstans, så hamnar vi här
     .catch((err) => console.error("Error: " + err));
 */
+
+export { API_KEY };

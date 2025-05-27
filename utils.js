@@ -1,6 +1,6 @@
 
 // lägga till ett movie card som funkar till både topp 10 och populära
-function createMovieCard(movie) {
+export function createMovieCard(movie) {
     const movieCard = document.createElement("div");
     movieCard.classList.add("movieInfo");
 

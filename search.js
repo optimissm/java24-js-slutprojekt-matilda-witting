@@ -1,12 +1,13 @@
 
+import { API_KEY } from "./config.js";
+
+// const movieSort = document.getElementById("movieSort");
 const searchInput = document.getElementById("findAnswer");
-const movieSort = document.getElementById("movieSort");
 const movieBtn = document.getElementById("movieBtn");
 const personBtn = document.getElementById("personBtn");
 const resultContainer = document.getElementById("resultContainer");
 
 let currentAnswer = "";
-
 
 movieBtn.addEventListener("click", () => {
     currentAnswer = "movie";
@@ -43,35 +44,11 @@ sortSelect.addEventListener("change", () => {
     if (currentAnswer === "movie") {
         sortedMovies(selectedSort);
     } else if (currentAnswer === "person") {
-        sortPersons(selectedSort);
+        sortedPersons(selectedSort);
     }
 });
 
-
-// let currentMovies = [];
-// let currentPersons = [];
-
-// const sortMovie = document.getElementById("sorting");
-
-// sortMovie.addEventListener("change", () => {
-//     const selectedSort = sortMovie.value;
-
-//     if(currentAnswer === "movie") {
-//         sortedMovies(selectedSort);
-//     } else if (currentAnswer === "person") {
-//         sortPersons(selectedSort);
-//     }
-// });
-
-// const sortPerson = document.getElementById("sorting");
-
-// sortPerson.addEventListener("change", () => {
-//     const selectedSortP = sortPerson.value;
-//     sortPersons(selectedSortP);
-// });
-
-
-function searchMovie(query){
+export function searchMovie(query){
     const movieUrl = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query)}&include_adult=false&language=en-US&page=1&api_key=${API_KEY}`;
 
     fetch(movieUrl)
@@ -86,7 +63,7 @@ function searchMovie(query){
     });
 }
 
-function searchPerson(query) {
+export function searchPerson(query) {
     const personUrl = `https://api.themoviedb.org/3/search/person?query=${encodeURIComponent(query)}&include_adult=false&language=en-US&page=1&api_key=${API_KEY}`;
 
     fetch(personUrl)
@@ -128,7 +105,6 @@ function displayMovieResult(movies) {
 
 }
 
-
 function displayPersonResult(persons) {
 
     resultContainer.innerHTML = "";
@@ -164,8 +140,7 @@ function displayPersonResult(persons) {
     });
 }
 
-
-function sortedMovies(selection) {
+export function sortedMovies(selection) {
     let sorted = [...currentMovies];
 
     if (selection === "A-Z") {
@@ -181,7 +156,7 @@ function sortedMovies(selection) {
     displayMovieResult(sorted);
 }
 
-function sortPersons(selection) {
+export function sortedPersons(selection) {
     let sorted = [...currentPersons];
 
     if (selection === "A-Z") {

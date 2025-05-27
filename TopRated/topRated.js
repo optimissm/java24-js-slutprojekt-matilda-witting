@@ -1,4 +1,9 @@
 
+import { API_KEY } from "../config.js";
+import { createMovieCard } from "../utils.js";
+
+
+
 const topRatedUrl = `https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&api_key=${API_KEY}`;
 
 const rateContainer = document.getElementById("topContainer");
@@ -17,3 +22,4 @@ fetch(topRatedUrl)
     console.error("I'm sorry, but I can't find the list of top 10 highest rated movies right now... Please try again later.", err);
   });
 
+// 
