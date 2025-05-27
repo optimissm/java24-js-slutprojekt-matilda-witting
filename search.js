@@ -1,5 +1,4 @@
 
-
 const searchInput = document.getElementById("findAnswer");
 const movieSort = document.getElementById("movieSort");
 const movieBtn = document.getElementById("movieBtn");
@@ -36,9 +35,9 @@ personBtn.addEventListener("click", () => {
 let currentMovies = [];
 let currentPersons = [];
 
-const sortingSelect = document.getElementById("sorting");
+const sortSelect = document.getElementById("sorting");
 
-sortingSelect.addEventListener("change", () => {
+sortSelect.addEventListener("change", () => {
     const selectedSort = sortSelect.value;
 
     if (currentAnswer === "movie") {
@@ -209,4 +208,4 @@ function sortPersons(selection) {
 // samt lägga till modulerna... 
 // fucking sheit man
 
-
+// export { searchMovie, searchPerson, sortedMovies, sortPersons };
